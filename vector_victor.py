@@ -1,3 +1,5 @@
+import math
+
 class NotSameShapeError(ValueError):
     pass
 
@@ -22,12 +24,9 @@ class Vector:
         return(self + other)
 
     def __sub__(self, other):
-        if self.shape != other.shape:
-            raise NotSameShapeError
-        else:
-            new_vector = Vector([])
-            zipped = zip(self.vector, other.vector)
-            new_vector.vector += [(pair[0] - pair[1]) for pair in zipped]
+        new_vector = Vector([])
+        zipped = zip(self.vector, other.vector)
+        new_vector.vector += [(pair[0] - pair[1]) for pair in zipped]
         return new_vector
 
     def vector_sum(self, *args):
@@ -38,7 +37,7 @@ class Vector:
         return new_vector
 
     def dot(self, other):
-        if self.shape != other.shape:
+        if self.shape[0] != other.shape[0]:
             raise NotSameShapeError
         else:
             new_vector = Vector([])
@@ -60,9 +59,13 @@ class Vector:
         count += [1 for arg in args]
         new_vector.vector = new_vector.vector_add(*args)
         new_vector.vector = new_vector.vector_multiply((1 / count))
+        return new_vector
 
     def magnitude():
-        pass
+        new_vector = ([])
+        count = 1
+        new_vector.vector = [new_vector.vector_multiply(num) for num in new_vector.vector]
+        new_vector.vector = [sqrt(num) for num in new_vector.vector]
 
 
 v1 = Vector([1, 2, 3, 4, 5])
@@ -71,3 +74,4 @@ v3 = Vector([1, 1, 1, 1, 1])
 v6 = Vector([2, 2, 2, 2, 2])
 v5 = Vector([v1.vector_sum(v2, v3, v6)])
 v4 = ((v1 + v2 + v3))
+print(sqrt(4))
