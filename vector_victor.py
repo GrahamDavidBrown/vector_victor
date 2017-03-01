@@ -65,7 +65,7 @@ class Vector:
         new_vector = ([])
         count = 1
         new_vector.vector = [new_vector.vector_multiply(num) for num in new_vector.vector]
-        new_vector.vector = [sqrt(num) for num in new_vector.vector]
+        new_vector.vector = [(num) ** .5 for num in new_vector.vector]
 
 
 v1 = Vector([1, 2, 3, 4, 5])
